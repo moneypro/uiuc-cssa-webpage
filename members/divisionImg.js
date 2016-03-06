@@ -94,10 +94,11 @@ function arrangeList(result,departmentName){
         //Creating department title and list if not exist.
         if(department == null)
         {
-            var dpmTitle = document.createElement("h2");
-            dpmTitle.appendChild(document.createTextNode(list[i][4]));
-            memberList.appendChild(dpmTitle);
+            //var dpmTitle = document.createElement("h2");
+            //dpmTitle.appendChild(document.createTextNode(list[i][4]));
+            //memberList.appendChild(dpmTitle);
             department = document.createElement("ul");
+            department.className = "rig columns-4";
             department.id = list[i][4];
             memberList.appendChild(department);
         }
@@ -107,7 +108,7 @@ function arrangeList(result,departmentName){
         link.href = "../assets/image/member/photo/LJS_"+list[i][3]+".jpg";
         var listitem = document.createElement("li");
         var memberImg = document.createElement("img");
-        var p = document.createElement("p");
+        var p = document.createElement("h3");
 
         //check image exist
         var img_url = "../assets/image/member/thumbnail/thumb_LJS_"+list[i][3]+".jpg";
