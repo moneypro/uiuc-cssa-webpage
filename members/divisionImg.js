@@ -111,7 +111,8 @@ function arrangeList(result,departmentName){
         var p = document.createElement("h3");
 
         //check image exist
-        var img_url = "../assets/image/member/thumbnail/thumb_LJS_"+list[i][3]+".jpg";
+        //var img_url = "../assets/image/member/thumbnail/thumb_LJS_"+list[i][3]+".jpg";
+        var img_url = "../assets/image/member/photo/LJS_" + list[i][3] + ".jpg";
         memberImg.src = img_url;
         if(!UrlExists(img_url)){
             memberImg.src ="../assets/image/member/photo/blank.jpg";
