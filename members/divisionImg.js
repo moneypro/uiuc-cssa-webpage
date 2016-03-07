@@ -18,7 +18,7 @@
 //alert(urlParams["department"]);
 
 //$(document).ready(function(){
-    //$.ajax({type: "GET",url: "data.csv", success: function(result){
+//$.ajax({type: "GET",url: "data.csv", success: function(result){
     //    arrangeList(result,urlParams["department"]);
     //    //setPageNextPre(result,urlParams["department"]);
     //}});
@@ -57,7 +57,8 @@
 //
 //}
 function fillImage(department){
-    $.ajax({type: "GET",url: "../assets/image/member/data.csv", success: function(result){
+    $.ajax({
+        type: "GET", url: "../assets/image/member/data.csv", success: function (result) {
         arrangeList(result,department);
         //setPageNextPre(result,urlParams["department"]);
     }});
@@ -111,7 +112,7 @@ function arrangeList(result,departmentName){
         var p = document.createElement("h3");
 
         //check image exist
-        var img_url = "../assets/image/member/thumbnail/thumb_LJS_"+list[i][3]+".jpg";
+        var img_url = "../assets/image/member/thumbnail/thumb_LJS_" + list[i][3] + ".jpg";
         //var img_url = "../assets/image/member/photo/LJS_" + list[i][3] + ".jpg";
         memberImg.src = img_url;
         if(!UrlExists(img_url)){
