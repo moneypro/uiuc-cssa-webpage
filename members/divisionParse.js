@@ -35,6 +35,7 @@ function fill(arr) {
     //PICS must be named as asym without suffix.
 }
 
+
 function main() {
     console.log("main");
     switch (getQueryString('d')) {

@@ -56,6 +56,8 @@
 //
 //
 //}
+
+var list;
 function fillImage(department){
     $.ajax({
         type: "GET", url: "../assets/image/member/data.csv", success: function (result) {
@@ -64,8 +66,15 @@ function fillImage(department){
     }});
 }
 
+
+function showComment(){
+    //var row = getQueryString('id');
+    //console.log(list[row][5]);
+}
+
 function printDepList(result){
     list = $.csv.toArrays(result);
+
     depList = [];
     for(i = 1;i<list.length;i++){
         if(depList.indexOf(list[i][4]) == -1){
@@ -86,7 +95,18 @@ function UrlExists(url)
 function arrangeList(result,departmentName){
 
     list = $.csv.toArrays(result);
+    console.log(list);
     var memberList = document.getElementById("memberList");
+    var row = getQueryString('id');
+    if (list[row]!=undefined) {
+        document.getElementById("name").innerHTML = "<h3>部长给"+list[row][1]+"的留言</h3>";
+        if (list[row][5]=="")
+            document.getElementById("comment").innerHTML = "部长暂时还没有给你留言。";
+        else
+            document.getElementById("comment").innerHTML = list[row][5];
+    }
+    //console.log(list[row][5]);
+    //console.log(list[row][5]);
     for(i = 1;i<list.length;i++){
         if(list[i][4]!= departmentName)
             continue;
@@ -106,7 +126,8 @@ function arrangeList(result,departmentName){
 
         //Create list item and append it to correspongding department list.
         var link = document.createElement("a");
-        link.href = "../assets/image/member/photo/LJS_"+list[i][3]+".jpg";
+        //link.href = "../assets/image/member/photo/LJS_"+list[i][3]+".jpg";
+        link.href="./comment.html?id="+i;
         var listitem = document.createElement("li");
         var memberImg = document.createElement("img");
         var p = document.createElement("h3");
